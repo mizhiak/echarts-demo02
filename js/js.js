@@ -351,6 +351,20 @@ option2 = {
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option2);
         myChart2.setOption(option);
+        
+        var index = 0; //播放所在下标
+				var mTime = setInterval(function() {
+					myChart.dispatchAction({
+						type: 'showTip',
+						seriesIndex: 0,
+						dataIndex: index
+					});
+					index++;
+					if(index > 6) {
+						index = 0;
+					}
+				}, 1000);
+
         window.addEventListener("resize",function(){
             myChart.resize();
         });
@@ -755,6 +769,7 @@ axisLabel:  {
         // myChart5.setOption(option5);
  
         myChart7.setOption(option7);
+
         window.addEventListener("resize",function(){
             myChart.resize();
             myChart7.resize();

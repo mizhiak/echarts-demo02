@@ -60,7 +60,7 @@
   #jingjiawei-logo1{
     position: absolute;
     right: 230px;
-    bottom: 200px;
+    bottom: 210px;
   }
   #fuxin-logo1{
     position: absolute;
@@ -77,6 +77,13 @@
     right: 110px;
     bottom: 100px;
   }
+  #qianxin-logo1{
+    position: absolute;
+    right: 110px;
+    bottom: 180px;
+  }
+
+
 /* 时间位置 */
   #showTime{
     position: absolute;
@@ -95,6 +102,7 @@
     top: 0px;
   }
 
+  
 </style>
 </head>
 <body>
@@ -123,43 +131,62 @@
 		</ul>
 		</div> -->
 		
-		<div class="time" id="showTime" >2018/6/12 17:00:12 </div>
-		<script>
-var t = null;
+		<div class="time" id="showTime" >2021/6/12 17:00:12 </div>
+	<script>
+    var t = null;
     t = setTimeout(time,1000);//開始运行
     function time()
     {
        clearTimeout(t);//清除定时器
-       dt = new Date();
-		var y=dt.getFullYear();
-		var mt=dt.getMonth()+1;
-		var day=dt.getDate();
-       var h=dt.getHours();//获取时
-       var m=dt.getMinutes();//获取分
-       var s=dt.getSeconds();//获取秒
-       document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
-       t = setTimeout(time,1000); //设定定时器，循环运行     
+        dt = new Date();
+        var y=dt.getFullYear();
+        var mt=dt.getMonth()+1;
+        var day=dt.getDate();
+        var h=dt.getHours();//获取时
+        var m=dt.getMinutes();//获取分
+        var s=dt.getSeconds();//获取秒
+        document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
+        t = setTimeout(time,1000); //设定定时器，循环运行     
     } 
 
 </script>
 	</div>
+
+  <!-- table轮询滚动 -->
+  <script language="JavaScript">
+    //先在table的最后增加一行，然后再把第一行中的数据填充到新增加的行中，最后再删除table的第一行
+    function change(table){
+    var row = table.insertRow(table.rows.length);//在table的最后增加一行,table.rows.length是表格的总行数
+    for(j=0;j<table.rows[0].cells.length;j++){//循环第一行的所有单元格的数据，让其加到最后新加的一行数据中（注意下标是从0开始的）
+    var cell = row.insertCell(j);//给新插入的行中添加单元格
+    cell.height = "24px";//一个单元格的高度，跟css样式中的line-height高度一样
+    cell.innerHTML = table.rows[0].cells[j].innerHTML;//设置新单元格的内容，这个根据需要，自己设置
+    }
+    table.deleteRow(0);//删除table的第一行
+    };
+    function tableInterval(){
+    var table = document.getElementById("test");//获得表格
+    change(table);//执行表格change函数，删除第一行，最后增加一行，类似行滚动
+    };
+    setInterval("tableInterval()",1000);//每隔2秒执行一次change函数，相当于table在向上滚动一样
+  </script>
+
 	<div class="mainbox">
-	
 	<ul class="clearfix nav1">
 		<li style="width: 22%">
 		<div class="box">
 			<div class="tit">质量日报</div>
 			<div class="boxnav" style="height: 200px;">
 <table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tbody>
-    <tr>
+    <thead>
+      <tr>
       <th>产品类型</th>
       <th>合格数</th>
       <th>不良数</th>
       <th>良率</th>
-
-     
     </tr>
+    </thead>
+    <tbody id="test">
     <tr>
       <td>PC-装配</td>
       <td><span class="text-w">261</span></td>
@@ -190,7 +217,7 @@ var t = null;
       <td><span class="text-b">1</span></td>
       <td><div class="text-s">99.00%</div></td>
     </tr>
-      
+    
   </tbody>
 </table>
 			</div>
@@ -250,7 +277,7 @@ var t = null;
 					var ind=$(this).index()
 					$(".mapnav ul").eq(ind).show().siblings().hide()
 				})
-				</script> -->
+				</scrip> -->
 
         
 			</div>
@@ -385,6 +412,9 @@ var t = null;
     </div>
     <div class="kdxf-logo" id="kdxf-logo1">
       <img src="images\36-科大讯飞1.png" alt="" width="100px">
+    </div>
+    <div class="qianxin-logo" id="qianxin-logo1">
+      <img src="images\14-奇安信.png" alt="" width="100px">
     </div>
 	</div>
 </body>

@@ -94,6 +94,8 @@ $(function () {
         //         var dataIndex = params.dataIndex;
         //         console.log(params);
         //     });
+
+        //地图tooltip轮询播放
         var index = 0;
         var mTime = setInterval(function(){
           myChart.dispatchAction({
@@ -107,7 +109,24 @@ $(function () {
           if (index > data.length){
             index = 0
           }
-        },500)
+        },1500)
+        
+        //
+        var index1 = 0;
+        var mTime1 = setInterval(function(){
+          myChart.dispatchAction({
+            type: 'highlight',
+            seriesIndex: 0,
+            dataIndex: index1
+          });
+          index1++;
+          if (index1 > data.length){
+            index1 = 0
+            myChart.dispatchAction({
+              type: 'downplay',
+            });
+          }
+        },1500)
     }
 
 })
