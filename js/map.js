@@ -44,12 +44,19 @@ $(function () {
                 '服务器出货量' +':'+ params.data.value2
               }
             },
+            // geo:  {
+            //   show: true,
+            //   map: '广西',
+            //   aspectScale: 1,
+            // },
             series: [
             {
               name: '数据类型',
               type: 'map',
               mapType: '广西',
               selectedMode : 'single',
+              zoom: 1,
+              aspectScale: 1,
               label: {
                   normal: {
                       show: true,//显示市区标签
