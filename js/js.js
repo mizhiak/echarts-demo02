@@ -371,91 +371,14 @@ option2 = {
     }
 function echarts_31() {
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('fb01'));
+
 	var myChart2 = echarts.init(document.getElementById('fb02')); 
 	var myChart3 = echarts.init(document.getElementById('fb03'));
 	var myChart4 = echarts.init(document.getElementById('fb04')); 
 	var myChart5 = echarts.init(document.getElementById('myd1')); 
 
 	var myChart7 = echarts.init(document.getElementById('sysx')); 
-option = {
-    tooltip: {
-        trigger: 'item',
-        formatter: "{a} <br/>{b}: {c} ({d}%)",
-position:function(p){   //其中p为当前鼠标的位置
-            return [p[0] + 10, p[1] - 10];
-        }
-    },
-    legend: {
-       orient: 'vertical',
-top:'25%',
-		right:0,
-       itemWidth: 10,
-        itemHeight: 10,
-        data:['20-29岁','30-39岁','40-49岁','50岁以上'],
-                textStyle: {
-            color: 'rgba(255,255,255,.5)',
-			fontSize:'12',
-        }
-    },
-    series: [
-        {
-        	name:'年龄分布',
-            type:'pie',
-			center: ['35%', '50%'],
-            radius: ['40%', '50%'],
-color: ['#62c98d', '#2f89cf', '#4cb9cf', '#e0c828','#e58c00','#eb295b'],	
-            label: {show:false},
-			labelLine: {show:false},
-            data:[
-  
-                {value:4, name:'20-29岁'},
-                {value:2, name:'30-39岁'},
-                {value:2, name:'40-49岁'},
-                {value:1, name:'50岁以上'},
-            ]
-        }
-    ]
-};
-option2 = {
-    tooltip: {
-        trigger: 'item',
-        formatter: "{a} <br/>{b}: {c} ({d}%)",
-position:function(p){   //其中p为当前鼠标的位置
-            return [p[0] + 10, p[1] - 10];
-        }
-    },
-    legend: {
-        orient: 'vertical',
-		top:'25%',
-		right:'8%',
-       itemWidth: 10,
-        itemHeight: 10,
-        data:['博士','硕士','本科','专科'],
-                textStyle: {
-            color: 'rgba(255,255,255,.5)',
-			fontSize:'12',
-        }
-    },
-    series: [
-        {
-        	name:'学历构成',
-            type:'pie',
-			center: ['40%', '50%'],
-            radius: ['40%', '50%'],
-color: ['#62c98d', '#2f89cf', '#4cb9cf', '#e0c828','#e58c00','#eb295b'],	
-            label: {show:false},
-			labelLine: {show:false},
-            data:[
-                {value:10, name:'博士'},
-                {value:20, name:'硕士'},
-                {value:30, name:'本科'},
-                {value:40, name:'专科'},
-               
-            ]
-        }
-    ]
-};
+
 	option3 = {
     tooltip: {
         trigger: 'item',
@@ -762,8 +685,7 @@ axisLabel:  {
   ]
 };
         // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-        myChart2.setOption(option2);
+
         myChart3.setOption(option3);
         myChart4.setOption(option4);
         // myChart5.setOption(option5);
@@ -771,9 +693,9 @@ axisLabel:  {
         myChart7.setOption(option7);
 
         window.addEventListener("resize",function(){
-            myChart.resize();
+
             myChart7.resize();
-            myChart2.resize();
+
             myChart3.resize();
             myChart4.resize();
             myChart5.resize();

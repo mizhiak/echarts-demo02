@@ -8,6 +8,7 @@
 <script type="text/javascript" src="js/china.js"></script>
 <script type="text/javascript" src="js/map.js"></script>
 <script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/RealTimeProductionStatus.js"></script>
 <script type="text/javascript" src="js/Bubble.js"></script>
 <script type="text/javascript" src="js/guangxi.js"></script>
 <link rel="stylesheet" href="css/style.css">
@@ -116,23 +117,23 @@
     <img src="images\bottombar.gif" alt="">
   </div>
 
-	<div class="head clearfix">
-	<h1 style="text-align: center;" >数广宝德大数据监控平台</h1>
+    <div class="head clearfix">
+    <h1 style="text-align: center;" >数广宝德大数据监控平台</h1>
 
   
-		<!-- <div class="menu menu2 pulll_left">
-		<ul>      
-			<li><a href="#">质量日报</a></li>
-			<li><a href="#">发货总量</a></li>
-			<li><a href="#">地区销量</a></li>
-			<li><a href="#">仓库物料</a></li>
-			<li><a href="#">故障分类</a></li>
-			<li><a href="#">市场预测</a></li>
-		</ul>
-		</div> -->
-		
-		<div class="time" id="showTime" >2021/6/12 17:00:12 </div>
-	<script>
+        <!-- <div class="menu menu2 pulll_left">
+        <ul>      
+            <li><a href="#">质量日报</a></li>
+            <li><a href="#">发货总量</a></li>
+            <li><a href="#">地区销量</a></li>
+            <li><a href="#">仓库物料</a></li>
+            <li><a href="#">故障分类</a></li>
+            <li><a href="#">市场预测</a></li>
+        </ul>
+        </div> -->
+        
+        <div class="time" id="showTime" >2021/6/12 17:00:12 </div>
+    <script>
     var t = null;
     t = setTimeout(time,1000);//開始运行
     function time()
@@ -150,7 +151,7 @@
     } 
 
 </script>
-	</div>
+    </div>
 
   <!-- table轮询滚动 -->
   <script language="JavaScript">
@@ -171,145 +172,146 @@
     setInterval("tableInterval()",1000);//每隔2秒执行一次change函数，相当于table在向上滚动一样
   </script>
 
-	<div class="mainbox">
-	<ul class="clearfix nav1">
-		<li style="width: 22%">
-		<div class="box">
-			<div class="tit">质量日报</div>
-			<div class="boxnav" style="height: 200px;">
-<table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
-    <thead>
-      <tr>
-      <th>产品类型</th>
-      <th>合格数</th>
-      <th>不良数</th>
-      <th>良率</th>
-    </tr>
-    </thead>
-    <tbody id="test">
-    <tr>
-      <td>PC-装配</td>
-      <td><span class="text-w">261</span></td>
-      <td><span class="text-b">3</span></td>
-      <td><div class="text-s">98.86%</div></td>
-    </tr>
-      <tr>
-      <td>PC-功能测试</td>
-      <td><span class="text-w">491</span></td>
-      <td><span class="text-b">9</span></td>
-      <td><div class="text-s">98.20%</div></td>
-    </tr>
-	     <tr>
-      <td>PC-包装</td>
-      <td><span class="text-w">500</span></td>
-      <td><span class="text-b">20</span></td>
-      <td><div class="text-s">88.00%</div></td>
-    </tr>
-      <tr>
-      <td>服务器测试</td>
-      <td><span class="text-w">100</span></td>
-      <td><span class="text-b">6</span></td>
-      <td><div class="text-s">94.00%</div></td>
-    </tr>
-	     <tr>
-      <td>服务器包装</td>
-      <td><span class="text-w">100</span></td>
-      <td><span class="text-b">1</span></td>
-      <td><div class="text-s">99.00%</div></td>
-    </tr>
-    
-  </tbody>
-</table>
-			</div>
-			</div>
-			<div class="box">
-			<div class="tit">故障分类</div>
-			<div class="boxnav" style="height: 250px;">
-				<div class="" style="height: 190px" id="echart1"></div>
-				<div class="leidanav">
-				<ul class="clearfix">
-					<li><span>固态硬盘</span><p>43</p></li>
-					<li><span>系统</span><p>80</p></li>
-					<li><span>内存条</span><p>28</p></li>
-					<li><span>主板</span><p>13</p></li>
-					<li><span>机械硬盘</span><p>120</p></li>
-					</ul>
-				</div>
-			</div>
-			</div>
-		</li>
-		<li style="width: 56%">
-		
-		<div class="box">
-			<div class="boxnav mapc" style="height: 550px; position: relative">
-				<div class="mapnav">
-				<!-- <ul>
-					<li><div><span>南宁</span><p>60%</p></div></li>
-					<li><div><span>柳州</span><p>12%</p></div></li>
-					<li><div><span>桂林</span><p>8%</p></div></li>
-					<li><div><span>玉林</span><p>10%</p></div></li>
-					<li><div><span>其他</span><p>10%</p></div></li>
-					</ul> -->
-				</div>
-				<div class="mapnav2">
-				
-				<div class="box">
-			<div class="tit">地区销量排行</div>
-			<div class="boxnav" style="height: 300px;" id="sysx">
-				
-				
-				</div>
-					<!-- <div class="leidanav leidanav3" style="margin-bottom: 15px;">
-				<ul class="clearfix">
-					<li><span>业务笔数</span><p>128</p></li>
-					<li><span>业务收益</span><p>100</p></li>
-					<li><span>业务笔数</span><p>28</p></li>
-					<li><span>业务收益</span><p>28</p></li>
-					</ul>
-				</div> -->
-					
-					</div>
-				</div>
-			<div class="map" id="guangxi-map"></div>
-				
-				<!-- <script>
-				$(".mapbtn a").hover(function(){
-					var ind=$(this).index()
-					$(".mapnav ul").eq(ind).show().siblings().hide()
-				})
-				</scrip> -->
+    <div class="mainbox">
+    <ul class="clearfix nav1">
+        <li style="width: 22%">
+        <div class="box">
+            <div class="tit">质量日报</div>
+            <div class="boxnav" style="height: 200px;" id="dailyQ">
+                <table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                      <tr>
+                      <th>产品类型</th>
+                      <th>合格数</th>
+                      <th>不良数</th>
+                      <th>良率</th>
+                    </tr>
+                    </thead>
+                    <tbody id="test">
+                    <tr>
+                      <td>PC-装配</td>
+                      <td><span class="text-w">261</span></td>
+                      <td><span class="text-b">3</span></td>
+                      <td><div class="text-s">98.86%</div></td>
+                    </tr>
+                      <tr>
+                      <td>PC-功能测试</td>
+                      <td><span class="text-w">491</span></td>
+                      <td><span class="text-b">9</span></td>
+                      <td><div class="text-s">98.20%</div></td>
+                    </tr>
+                         <tr>
+                      <td>PC-包装</td>
+                      <td><span class="text-w">500</span></td>
+                      <td><span class="text-b">20</span></td>
+                      <td><div class="text-s">88.00%</div></td>
+                    </tr>
+                      <tr>
+                      <td>服务器测试</td>
+                      <td><span class="text-w">100</span></td>
+                      <td><span class="text-b">6</span></td>
+                      <td><div class="text-s">94.00%</div></td>
+                    </tr>
+                         <tr>
+                      <td>服务器包装</td>
+                      <td><span class="text-w">100</span></td>
+                      <td><span class="text-b">1</span></td>
+                      <td><div class="text-s">99.00%</div></td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+
+            </div>
+            </div>
+            <div class="box">
+            <div class="tit">故障分类</div>
+            <div class="boxnav" style="height: 250px;">
+                <div class="" style="height: 190px" id="echart1"></div>
+                <div class="leidanav">
+                <ul class="clearfix">
+                    <li><span>固态硬盘</span><p>43</p></li>
+                    <li><span>系统</span><p>80</p></li>
+                    <li><span>内存条</span><p>28</p></li>
+                    <li><span>主板</span><p>13</p></li>
+                    <li><span>机械硬盘</span><p>120</p></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </li>
+        <li style="width: 56%">
+        
+        <div class="box">
+            <div class="boxnav mapc" style="height: 550px; position: relative">
+                <div class="mapnav">
+                <!-- <ul>
+                    <li><div><span>南宁</span><p>60%</p></div></li>
+                    <li><div><span>柳州</span><p>12%</p></div></li>
+                    <li><div><span>桂林</span><p>8%</p></div></li>
+                    <li><div><span>玉林</span><p>10%</p></div></li>
+                    <li><div><span>其他</span><p>10%</p></div></li>
+                    </ul> -->
+                </div>
+                <div class="mapnav2">
+                
+                <div class="box">
+            <div class="tit">地区销量排行</div>
+            <div class="boxnav" style="height: 300px;" id="sysx">
+                
+                
+                </div>
+                    <!-- <div class="leidanav leidanav3" style="margin-bottom: 15px;">
+                <ul class="clearfix">
+                    <li><span>业务笔数</span><p>128</p></li>
+                    <li><span>业务收益</span><p>100</p></li>
+                    <li><span>业务笔数</span><p>28</p></li>
+                    <li><span>业务收益</span><p>28</p></li>
+                    </ul>
+                </div> -->
+                    
+                    </div>
+                </div>
+            <div class="map" style="height: 550px;" id="guangxi-map"></div>
+                
+                <!-- <script>
+                $(".mapbtn a").hover(function(){
+                    var ind=$(this).index()
+                    $(".mapnav ul").eq(ind).show().siblings().hide()
+                })
+                </scrip> -->
 
         
-			</div>
-			</div>
-		
-		</li>
-		<li style="width: 22%">
-		
-		<div class="box">
-			<div class="tit">发货总量</div>
-			<div class="boxnav" id="echart3" style="height: 200px;">
-			
-			</div>
-			</div>
-			<div class="box">
-			<div class="tit">市场预测</div>
-			<div class="boxnav" style="height: 250px;">
-				<div style="height: 200px; float: left; width: 40%; padding: 0 5px;">
-				<div class="tit02 text-b">热门榜</div>
-					<div class="huati">
-					<ul>
-						<li>1.数据分析  <span class="text-s">↑2167</span></li>
-						<li>2.云存储     <span class="text-s">↑2167</span></li>
-						<li>3.视觉分析   <span class="text-d">↓2167</span></li>
-						<li>4.虚拟化   <span class="text-d">↓2167</span></li>
-						<li>5.云计算      <span class="text-d">↓2167</span></li>
-						</ul>
-					</div>
-				</div>
-			
-			<div style="height: 200px; float: left; width: 60%">
-				
+            </div>
+            </div>
+        
+        </li>
+        <li style="width: 22%">
+        
+        <div class="box">
+            <div class="tit">发货总量</div>
+            <div class="boxnav" id="echart3" style="height: 200px;">
+            
+            </div>
+            </div>
+            <div class="box">
+            <div class="tit">市场预测</div>
+            <div class="boxnav" style="height: 250px;">
+                <div style="height: 200px; float: left; width: 40%; padding: 0 5px;">
+                <div class="tit02 text-b">热门榜</div>
+                    <div class="huati">
+                    <ul>
+                        <li>1.数据分析  <span class="text-s">↑2167</span></li>
+                        <li>2.云存储     <span class="text-s">↑2167</span></li>
+                        <li>3.视觉分析   <span class="text-d">↓2167</span></li>
+                        <li>4.虚拟化   <span class="text-d">↓2167</span></li>
+                        <li>5.云计算      <span class="text-d">↓2167</span></li>
+                        </ul>
+                    </div>
+                </div>
+            
+            <div style="height: 200px; float: left; width: 60%">
+                
 <div class="text-b tit02" style="text-align: center;">关键词 — 词云</div>
     <div class="tagcloud">
       <!-- bo大小 co颜色 -->
@@ -331,36 +333,29 @@
         keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
     });
 </script>
-				</div>
-			</div>
-			</div>
-		
-		</li>
-		</ul>
-		
-		<div class="box" style="padding: 20px 0;">
-		<ul class="clearfix nav2 ">
-		<li style="width:25%"><div class="tit01">公司人员概况</div>
-			<div class="" id="">
-			<div style="float: left; width: 50%; height: 170px" id="fb01"></div>
-			<div style="float: left; width: 50%; height: 170px"  id="fb02"></div>
-				
-			</div>
-			<div class="leidanav leidanav2">
-				<ul class="clearfix">
-					<li><span>总人数</span><p>128</p></li>
-					<li><span>男职员</span><p>100</p></li>
-					<li><span>女职员</span><p>28</p></li>
-		
-					</ul>
-				</div>
-			</li>
-		<li style="width:25%"><div class="tit01">生产计划</div>
-			<div class="ftechart" id="echart4"></div>
-			</li>
+                </div>
+            </div>
+            </div>
+        
+        </li>
+        </ul>
+        
+        <div class="box" style="padding: 20px 0;">
+        <ul class="clearfix nav2 ">
+        <li style="width:25%">
+            <div class="tit01">生产实时状况</div>
+                <div class="" id="">
+                    <div style="float: left; width: 50%; height: 170px" id="fb01">
+                    </div>
+                    <div style="float: left; width: 50%; height: 170px"  id="fb02"></div>
+                </div>
+            </li>
+        <li style="width:25%"><div class="tit01">生产计划</div>
+            <div class="ftechart" id="echart4"></div>
+            </li>
 
       <li style="width:25%"><div class="tit01">物料库存</div>
-			
+            
         <div class="" id="">
         <div style="float: left; width: 50%; height: 200px" id="fb03"></div>
         <div style="float: left; width: 50%; height: 200px"  id="fb04"></div>
@@ -369,27 +364,27 @@
         
         </li>
 
-		<li style="width:25%"><div class="tit01">合作伙伴</div>
-			<div class="" style="height:100%;display: flex; align-items: center;">
-			<div style="float: left; width: 50%; height: 100%" class="wancheng">
-				<!-- <div><span>合作公司</span>
-				<h3>60家<i></i></h3></div>
-				<div class="yuan">
-				<span>89%</span>
-				</div>
-				</div> -->
+        <li style="width:25%"><div class="tit01">合作伙伴</div>
+            <div class="" style="height:100%;display: flex; align-items: center;">
+            <div style="float: left; width: 50%; height: 100%" class="wancheng">
+                <!-- <div><span>合作公司</span>
+                <h3>60家<i></i></h3></div>
+                <div class="yuan">
+                <span>89%</span>
+                </div>
+                </div> -->
         
-			<div style="float: left; width: 50%; height: 50%" id="myd1"></div>
+            <div style="float: left; width: 50%; height: 50%" id="myd1"></div>
 
-			</div>
-			
-			</li>
-	
-		</ul>
-		</div>
-		
+            </div>
+            
+            </li>
+    
+        </ul>
+        </div>
+        
       <!-- 放合作伙伴Logo -->
-		<div class="huawei-logo" id="huawei-logo1">
+        <div class="huawei-logo" id="huawei-logo1">
       <img src="images\41-华为.png" alt="" width="120px">
     </div>
     <div class="tongxin-logo" id="tongxin-logo1">
@@ -416,6 +411,25 @@
     <div class="qianxin-logo" id="qianxin-logo1">
       <img src="images\14-奇安信.png" alt="" width="100px">
     </div>
-	</div>
+    </div>
+
+
+    <script>
+
+        // ******** real_time_productions ************
+        var  real_time_productions = echarts.init(document.getElementById('fb01'));
+        var  r_ret = showRealTimeProductionStatus();
+        real_time_productions.setOption(r_ret);
+
+
+
+
+
+
+
+
+
+    </script>
+
 </body>
 </html>

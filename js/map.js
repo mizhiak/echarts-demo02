@@ -23,8 +23,8 @@ $(function () {
         var myChart = echarts.init(document.getElementById('guangxi-map'));
         var option = {
             title: {
-                text : '广西地图',
-                subtext : '各市区显示',
+                text : '',
+                subtext : '',
                 left: "650",
                 textStyle:{
                   color : '#ffffff'
