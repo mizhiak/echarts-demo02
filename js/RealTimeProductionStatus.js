@@ -1,5 +1,4 @@
-﻿
-function showRealTimeProductionStatus() {
+﻿function showRealTimeProductionStatus() {
 
     //window.alert("showRealTimeProductionStatus");
 

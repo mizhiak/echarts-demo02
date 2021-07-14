@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>质量日报</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/Bubble.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<link rel="stylesheet" href="css/style.css">
+
+  <!-- table轮询滚动 -->
+  <script language="JavaScript">
+    //先在table的最后增加一行，然后再把第一行中的数据填充到新增加的行中，最后再删除table的第一行
+    function change(table){
+    var row = table.insertRow(table.rows.length);//在table的最后增加一行,table.rows.length是表格的总行数
+    for(j=0;j<table.rows[0].cells.length;j++){//循环第一行的所有单元格的数据，让其加到最后新加的一行数据中（注意下标是从0开始的）
+    var cell = row.insertCell(j);//给新插入的行中添加单元格
+    cell.height = "24px";//一个单元格的高度，跟css样式中的line-height高度一样
+    cell.innerHTML = table.rows[0].cells[j].innerHTML;//设置新单元格的内容，这个根据需要，自己设置
+    }
+    table.deleteRow(0);//删除table的第一行
+    };
+    function tableInterval(){
+    var table = document.getElementById("test");//获得表格
+    change(table);//执行表格change函数，删除第一行，最后增加一行，类似行滚动
+    };
+    setInterval("tableInterval()",3000);//每隔2秒执行一次change函数，相当于table在向上滚动一样
+  </script>
+
+</head>
+<body>
+    
+        <table class="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+              <tr>
+              <th>产品类型</th>
+              <th>合格数</th>
+              <th>不良数</th>
+              <th>良率</th>
+            </tr>
+            </thead>
+            <tbody id="test">
+            <tr>
+              <td>PC-装配</td>
+              <td><span class="text-w">261</span></td>
+              <td><span class="text-b">3</span></td>
+              <td><div class="text-s">98.86%</div></td>
+            </tr>
+              <tr>
+              <td>PC-功能测试</td>
+              <td><span class="text-w">491</span></td>
+              <td><span class="text-b">9</span></td>
+              <td><div class="text-s">98.20%</div></td>
+            </tr>
+                 <tr>
+              <td>PC-包装</td>
+              <td><span class="text-w">500</span></td>
+              <td><span class="text-b">20</span></td>
+              <td><div class="text-s">88.00%</div></td>
+            </tr>
+              <tr>
+              <td>服务器测试</td>
+              <td><span class="text-w">100</span></td>
+              <td><span class="text-b">6</span></td>
+              <td><div class="text-s">94.00%</div></td>
+            </tr>
+                 <tr>
+              <td>服务器包装</td>
+              <td><span class="text-w">100</span></td>
+              <td><span class="text-b">1</span></td>
+              <td><div class="text-s">99.00%</div></td>
+            </tr>
+            
+          </tbody>
+        </table>
+    
+</body>
+</html>

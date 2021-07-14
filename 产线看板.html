@@ -1,0 +1,755 @@
+
+<!-- saved from url=(0049)http://192.168.83.253:8080/kanban_gz.html?sob=001 -->
+<html xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout/default"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,IE=8,chrome=1">
+    <!--[endif]---->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#033C76">
+    <link rel="stylesheet" href="./产线看板_files/lato.css">
+    <link rel="stylesheet" href="./产线看板_files/layui.css">
+    <link rel="stylesheet" href="./产线看板_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./产线看板_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./产线看板_files/themify-icons.min.css">
+    <title>产线看板</title>
+    <style type="text/css">
+        /** {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }*/
+
+        html, body {
+            margin: 0;
+            height: 100%;
+            background-color: #033C76;
+            overflow: hidden;
+        }
+
+        .body {
+            height: 100%;
+        }
+
+        .layui-row {
+            height: 50%;
+        }
+
+        .dz-row {
+            height: 100%;
+            padding: 0;
+        }
+
+        .layui-col-xs6 {
+            height: 100%;
+        }
+
+        .col {
+            height: 100%;
+            background-color: #033C76;
+            margin-right: 0;
+            margin-left: 0;
+            text-align: center;
+            border: 1px #6a6a6a solid;
+        }
+
+        .col .p1 {
+            height: 50%;
+            position: relative;
+            text-align: center;
+        }
+
+        .col .p1 p {
+            color: white;
+            font-size: 10px;
+            /*position: absolute;*/
+            left: 10%;
+            height: 100%;
+            right: 10%;
+            bottom: 0;
+            padding: 0;
+            margin: 0
+        }
+
+        .col .p2 {
+            height: 50%;
+        }
+
+        .col .p2 p {
+            color: white;
+            font-size: 5px;
+        }
+
+        .panel {
+            height: 100%;
+        }
+
+        .layui-col-xs2 {
+            height: 100%;
+        }
+
+        .layui-col-xs3 {
+            height: 100%;
+        }
+
+        .layui-col-xs4 {
+            height: 100%;
+        }
+
+        .layui-col-xs9 {
+            height: 100%;
+        }
+
+        .layui-col-xs12 {
+            height: 100%;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table.list-table th {
+            font-size: 10px;
+            font-family: "Microsoft YaHei UI", "黑体";
+            color: white;
+            border: 1px white solid;
+            text-align: center;
+        }
+
+        table.list-table td {
+            font-size: 10px;
+            border: 1px white solid;
+            text-align: center;
+        }
+
+        .layui-form-select dl {
+            background-color: #000000;
+        }
+
+        .layui-select-title input {
+            background-color: #000000;
+            color: white;
+            font-size: 5px;
+        }
+
+        .layui-unselect-title input {
+            background-color: #000000;
+            color: white;
+            font-size: 5px;
+        }
+
+        .layui-form-select dl dd:hover {
+            background-color: #5FB878
+        }
+
+        .layui-form-label {
+            padding-left: 0;
+            padding-right: 0;
+            width: auto;
+        }
+
+        .layui-input-block {
+            position: absolute;
+        }
+
+        input[type="text"]:focus {
+            background-color: #000000
+        }
+
+        .hide-scroll::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+    </style>
+</head>
+<body layout:fragment="body" style="">
+<div class="layui-row" style="height: 6%" id="titleDiv">
+    <div class="dz-row">
+        <div class="layui-col-xs12">
+            <div class="p1" style="text-align: center">
+                <!--p style="font-size: 5px;color:white;">
+                    <select id="depCode" onchange="changeDepartment()" style="background-color: #033C76">
+                        
+                    <option value="">全部</option><option value="0100">董事长</option><option value="010101001">总经理</option><option value="01010100200">生产运营总监</option><option value="01010100201">整机生产一部</option><option value="01010100202">安全质量部</option><option value="01010100203">物控部(PMC)</option><option value="01010100300">销售管理</option><option value="01010100301">市场支持</option><option value="01010100400">人事</option><option value="01010100401">行政</option><option value="01010100402">总监</option><option value="01010101001">技术支撑部</option><option value="01010101002">市场营销部</option><option value="01010101003">渠道拓展部</option><option value="01010101004">副总经理</option><option value="01010102001">采购管理部</option><option value="01010102002">企业发展部</option><option value="01010102003">财务管理部</option><option value="01010102004">常务副总经理</option><option value="0102">监事</option><option value="02">数广宝德总体费用</option></select>
+                    _
+                    <select id="workCenterCode" onchange="changeWorkCenter()" style="background-color: #033C76">
+                        
+                    <option value="">全部</option><option value="DA">组装中心</option><option value="DT">测试中心</option><option value="DP">包装中心</option></select>
+                    _
+                    产线看板
+                    <!--<span style="margin-left: 100px;font-size:5px;">10分钟更新一次</span>-->
+                <!--/p-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-row" style="height: 8%">
+    <div class="dz-row">
+        <div class="layui-col-xs6">
+            <div class="btn-group">
+                
+                
+            </div>
+        </div>
+        <div class="layui-col-xs6" style="position:relative;">
+            <ul class="nav nav-tabs" style="position:absolute;right:0;">
+                <li>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="layui-row" style="height: 83%">
+    <div class="dz-row">
+        <div class="layui-col-xs12">
+            <div id="listDiv" class="" style="background-color: #033C76;height: 100%">
+                <div id="theadDiv" class="hide-scroll" style="overflow-y:scroll;background-color: #033C76">
+                    <table class="list-table" style="margin-bottom:0px;background-color: #033C76">
+                        <colgroup>
+                            <col style="width: 10%;">
+                            <col style="width: 14%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                            <col style="width: 13%;">
+                            <col style="width: 13%;">
+                        </colgroup>
+                        <thead>
+                        <tr style="background-color: #033C76">
+                            <th>工站</th>
+                            <th>工站名称</th>
+                            <th>派工数</th>
+                            <th>派工时</th>
+                            <th>完工数</th>
+                            <th>合格数</th>
+                            <th>不良数</th>
+                            <th>合格率</th>
+                            <th>达成率</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <!-- 滚动条 div id="tbodyDiv" class="hide-scroll" style="width: 100%; overflow-y: scroll; background-color: #033C76; height: 580px;"-->
+                    <table class="list-table" id="data_table" style="background-color: #033C76">
+                        <colgroup>
+                            <col style="width: 10%;">
+                            <col style="width: 14%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                            <col style="width: 13%;">
+                            <col style="width: 13%;">
+                        </colgroup>
+                        <tbody>
+                        <tr style="color:#FFFFFF"><td style="word-break:break-all;">SP103</td><td style="word-break:break-all;">除尘贴膜	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">ST104</td><td style="word-break:break-all;">后测</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP110</td><td style="word-break:break-all;">OEM包装	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA102</td><td style="word-break:break-all;">机箱加工	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SQ102</td><td style="word-break:break-all;">OQC功能检验	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP107</td><td style="word-break:break-all;">贴外箱标贴	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA105</td><td style="word-break:break-all;">接线理线、打胶	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA107</td><td style="word-break:break-all;">光驱安装</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP106</td><td style="word-break:break-all;">装箱封箱	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP105</td><td style="word-break:break-all;">套PE袋	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">ST103</td><td style="word-break:break-all;">老化测试	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA103</td><td style="word-break:break-all;">装主板、风扇	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA104</td><td style="word-break:break-all;">硬盘安装	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP101</td><td style="word-break:break-all;">配件包装	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP109</td><td style="word-break:break-all;">打包带	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SQ104</td><td style="word-break:break-all;">IPQC检验	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">HH01</td><td style="word-break:break-all;">维修工站</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP102</td><td style="word-break:break-all;">贴机器标贴	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">ST102</td><td style="word-break:break-all;">前测	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">18</td><td style="word-break:break-all;">18</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">50%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA101</td><td style="word-break:break-all;">电源、主板、硬盘、卡类加工	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">70</td><td style="word-break:break-all;">70</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">50%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP108</td><td style="word-break:break-all;">套外箱PE袋	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">ST101</td><td style="word-break:break-all;">安规测试	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">68</td><td style="word-break:break-all;">68</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">50%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP104</td><td style="word-break:break-all;">出货拍照	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SQ101</td><td style="word-break:break-all;">QC内观检验	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">69</td><td style="word-break:break-all;">69</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">50%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SQ103</td><td style="word-break:break-all;">FQC检验	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA106</td><td style="word-break:break-all;">装电源、显卡	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA201</td><td style="word-break:break-all;">OEM组装	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">70</td><td style="word-break:break-all;">70</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">50%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-row " style="height: 3%" id="footDiv">
+    <div class="dz-row">
+        <div class="layui-col-xs12" style="position:relative;">
+            <p style="color: white;position:absolute;right:10px;bottom:0">
+                
+                    
+                
+            </p>
+        </div>
+    </div>
+</div>
+<scripts layout:fragment="scripts">
+    <script type="text/javascript" src="./产线看板_files/jquery.min.js.下载"></script>
+    <script type="text/javascript" src="./产线看板_files/jquery-ui.min.js.下载"></script>
+    <script type="text/javascript" src="./产线看板_files/sweet-alert.min.js.下载"></script>
+    <script type="text/javascript">
+
+        var pathName = window.document.location.pathname;
+        var ctx =  "http://192.168.83.253:8080";
+
+        /**
+         *获取生产部门列表
+        function getDepartmentList() {
+            var url = ctx + "/r9-mes/api/arc/department/get/ref-list.anon";
+            var params = {
+                "arcCode": "",
+                "arcName": ""
+            };
+            $.ajax({
+                url: url,
+                traditional: true,
+                type: "POST",
+                dataType: 'json',
+                async: false,
+                data: JSON.stringify(params),
+                contentType: "application/json; charset=utf-8",
+                headers: {
+                    "x-request-datasource": top.$("#sob").val()
+                },
+                success: function (data, status) {
+                    if (data.success) {
+                        data=data.message;
+                        $("#depCode").find("option").remove();
+                        $("#depCode").append("<option value=''>全部</option>");
+                        for (var i = 0; i < data.length; i++) {
+                            $("#depCode").append("<option value='" + data[i].arcCode + "'>" + data[i].arcName + "</option>");
+                        }
+                    }
+                    //layui.form.render();
+                }
+            });
+        }
+         */
+    //第二种
+    
+    function set_select_checked(selectId, checkValue){
+       var select = document.getElementById(selectId);
+       for (var i = 0; i < select.options.length; i++){
+          if (select.options[i].value == checkValue){
+             select.options[i].selected = true;
+             break;
+          }
+       }
+    }
+  /* Returns the class name of the argument or undefined if  
+ 2    it's not a valid JavaScript object.  
+ 3 */
+          function getObjectClassName(obj) {
+              if (obj && obj.constructor && obj.constructor.toString) {
+                  var arr = obj.constructor.toString().match(/function\s*(\w+)/);
+                  if (arr && arr.length == 2) {
+                     return arr[1];
+                 }
+             }
+         
+             return undefined;
+         }
+
+        function getDepartmentList() {
+			var url = "http://192.168.83.253:8080/r9-mes/api/arc/department/get/ref-list.anon";
+            //window.alert("getDepartmentList");
+			var formData = new FormData();
+			  formData.append('arcCode', "");
+			  formData.append('arcName', "");
+			var json = JSON.stringify(formData);
+
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", url, true);
+			xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+			xhr.setRequestHeader('x-request-datasource','001');
+			xhr.responseType='json';
+			xhr.onload  = function (e) {
+				//window.alert(xhr.readyState);
+				//window.alert(xhr.responseText);
+
+                var json_data=JSON.parse(xhr.responseText);
+                //window.alert(getObjectClassName(data));
+                var data = json_data["message"];
+                //window.alert(data);
+
+				$("#workCenterCode").find("option").remove();
+				$("#workCenterCode").append("<option value=''>全部</option>");
+				for (var i = 0; i < data.length; i++) {
+					$("#workCenterCode").append("<option value='" + data[i].arcCode + "'>" + data[i].arcName + "</option>");
+				}
+				
+			};
+        
+			xhr.send(json);
+        }
+
+        /**
+         *获取工作中心列表
+         */
+        function getWorkCenterList() {
+            var depCode = $("#depCode").val();
+            //window.alert(depCode);
+            var url = ctx + "/r9-mes/api/arc/work/center/get/ref-list.anon?depCode=" + depCode;
+
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", url, true);
+			xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+			xhr.setRequestHeader('x-request-datasource','001');
+			xhr.responseType='json';
+			xhr.onload  = function (e) {
+				
+
+				var json_data=JSON.parse(xhr.responseText);
+                //window.alert(getObjectClassName(data));
+                var data = json_data["message"];
+                //window.alert(data);
+				$("#workCenterCode").find("option").remove();
+				$("#workCenterCode").append("<option value=''>全部</option>");
+				for (var i = 0; i < data.length; i++) {
+					$("#workCenterCode").append("<option value='" + data[i].arcCode + "'>" + data[i].arcName + "</option>");
+				}
+				
+			};
+			xhr.send(null);
+        }
+
+        var widthArray=["10","14","10","10","10","10","10","13","13"];
+        /**
+         *获取工序列表
+         */
+        function getKanbanConfig() {
+            var url = ctx + "/r9-mes/api/work/KanbanConfig/get.anon";
+            //window.alert("getKanbanConfig");
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", url, true);
+			xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+			xhr.setRequestHeader('x-request-datasource','001');
+			xhr.responseType='json';
+			xhr.onload  = function (e) {
+				//window.alert(xhr.readyState);
+                var json_data=JSON.parse(xhr.responseText);
+                //window.alert(getObjectClassName(data));
+                var data = json_data["message"];
+
+                var gzWidth = data.gzWidth;
+                if(gzWidth==null||gzWidth==""){
+                    return;
+                }
+                var tdWidthArr = gzWidth.split(";");
+                for(var i=0;i<tdWidthArr.length;i++){
+                    //重置列宽比
+                    $($("#theadDiv").find("col")[i]).width(tdWidthArr[i]+"%");
+                    $($("#tbodyDiv").find("col")[i]).width(tdWidthArr[i]+"%");
+                    if("0"==tdWidthArr[i]){
+                        $($("#theadDiv").find("th")[i]).hide();
+                    }
+                    widthArray[i]=tdWidthArr[i];
+                }
+				
+			}
+			xhr.send(null);
+        }
+
+        /**
+         * 改变部门
+         */
+        function changeDepartment() {
+            //同步改变工作中心
+            getWorkCenterList();
+            refresh();
+        }
+
+        /**
+         * 改变工作中心
+         */
+        function changeWorkCenter() {
+            refresh();
+        }
+
+        /**
+         * 日期格式化
+         * @param format
+         * @returns {*}
+         */
+        Date.prototype.format = function (format) {
+            var date = {
+                "M+": this.getMonth() + 1,
+                "d+": this.getDate(),
+                "h+": this.getHours(),
+                "m+": this.getMinutes(),
+                "s+": this.getSeconds(),
+                "q+": Math.floor((this.getMonth() + 3) / 3),
+                "S+": this.getMilliseconds()
+            };
+            if (/(y+)/i.test(format)) {
+                format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+            }
+            for (var k in date) {
+                if (new RegExp("(" + k + ")").test(format)) {
+                    format = format.replace(RegExp.$1, RegExp.$1.length == 1
+                        ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+                }
+            }
+            return format;
+        };
+
+        var currentPosition, timer;
+        var toEnd = true;
+        var toBegin = false;
+
+        //自动滚动
+        function autoScroll() {
+            if (toEnd) {
+                //autoRunToEnd();
+            } else {
+                //autoRunToBegin();
+            }
+        }
+
+        function autoRunToEnd() {
+            var tbodyDivScrollHeight = $($(".list-table")[1]).height() - $("#tbodyDiv").height();
+            //滚动条当前高度
+            currentPosition = document.getElementById('tbodyDiv').scrollTop;
+            //每次移动一个像素
+            currentPosition += 1;
+            //到到底部后返回
+            if (currentPosition >= tbodyDivScrollHeight) {
+                toBegin = true;
+                toEnd = false;
+            } else {
+                document.getElementById('tbodyDiv').scrollTop = currentPosition;
+                //clearInterval(timer);
+            }
+        }
+
+        function autoRunToBegin() {
+            var tbodyDivScrollHeight = $($(".list-table")[1]).height() - $("#tbodyDiv").height();
+            //滚动条当前高度
+            currentPosition = document.getElementById('tbodyDiv').scrollTop;
+            //每次移动一个像素
+            currentPosition -= 1;
+            //到到顶部后返回
+            if (currentPosition <= 0) {
+                toEnd = true;
+                toBegin = false;
+            } else {
+                document.getElementById('tbodyDiv').scrollTop = currentPosition;
+                //clearInterval(timer);
+            }
+        }
+
+        function tableHeightResize() {
+            //展示div域
+            var tabContentHeight = $("#listDiv").height();
+            //表头高度
+            var tableHeadHeight = $("#theadDiv").height();
+            //设置表体高度
+            $("#tbodyDiv").height(tabContentHeight - tableHeadHeight);
+        }
+
+
+        $(window).resize(function () {
+            //重置高度
+            tableHeightResize();
+            //重置滚动参数
+            clearInterval(timer);
+            tbodyDivScrollHeight = $($(".list-table")[1]).height() - $("#tbodyDiv").height();
+            timer = setInterval("autoScroll()", 100);
+        });
+
+        //每10分钟更新一次页面
+        setInterval("refresh()", 5 * 1000);
+
+        //tableHeightResize();
+        //
+        var array_workCenterCode = ["DA", "DT", "DP"];
+        var index_workCenterCode = 0;
+        
+        function refresh() {
+            var depCode = "01010100201";//$("#depCode").val();
+            var workCenterCode = array_workCenterCode[index_workCenterCode];//$("#workCenterCode").val();
+
+            //window.alert(depCode);
+            //window.alert(workCenterCode);
+            var url = ctx + "/r9-mes/api/work/shop/kanban/list.anon?depCode=" + depCode + "&workCenterCode=" + workCenterCode;
+            //window.alert(url);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+            xhr.setRequestHeader('x-request-datasource','001');
+            xhr.responseType='json';
+            xhr.onload  = function (e) {
+                //window.alert(xhr.readyState);
+                var json_data=JSON.parse(xhr.responseText);
+                //window.alert(getObjectClassName(data));
+                var data = json_data["message"];
+//window.alert(JSON.stringify(data));
+                //var nowDateInfo = new Date().format("yyyy-MM-dd");
+                //var nowTimeInfo = new Date().format("hh:mm:ss");
+                //$("#nowDateInfo").find("font")[0].innerText = nowDateInfo;
+                //$("#nowTimeInfo").find("font")[0].innerText = nowTimeInfo;
+
+                var tbody = $("#data_table").find("tbody");
+                tbody.find("tr").remove();
+                for (var i = 0; i < data.length; i++) {
+
+                    if (data[i].workStationCode == "SA102" || data[i].workStationCode == "SA103" || 
+                        data[i].workStationCode == "SA105" || data[i].workStationCode == "SP101" || 
+                        data[i].workStationCode == "SP102" || data[i].workStationCode == "SP103" ||
+                        data[i].workStationCode == "SP104" || data[i].workStationCode == "SP105" || 
+                        data[i].workStationCode == "SP106" || data[i].workStationCode == "SP107" || data[i].workStationCode == "SP108" ||
+                        data[i].workStationCode == "SP109" || data[i].workStationCode == "SQ104") {
+                        //window.alert(data[i].workStationCode);
+
+                    } else {
+
+                        tbody.append("<tr style='color:#FFFFFF'>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[0]==0?"hidden":"") +">" + data[i].workStationCode + "</td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[1]==0?"hidden":"") +">" + data[i].workStationName + "</td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[2]==0?"hidden":"") +">" + handlerQuantity(data[i].planQty) + "</td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[3]==0?"hidden":"") +">" + handlerQuantity(data[i].playHour) + "</td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[4]==0?"hidden":"") +">" + handlerQuantity(data[i].completeQty) + "</td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[5]==0?"hidden":"") +">" + handlerQuantity(data[i].qualifiedQty) + "</td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[6]==0?"hidden":"") +"><font color='red'>" + handlerQuantity(data[i].unQualifiedQty) + "</font></td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[7]==0?"hidden":"") +"><font color='red'>" + handlerQuantity(data[i].qualifiedRate) + "%</font></td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[8]==0?"hidden":"") +"><font color='red'>" + handlerQuantity(data[i].scheduleRate) + "%</font></td>" +
+                            "</tr>");
+                    }
+                }
+                
+                tableHeightResize();
+                //重置滚动参数
+                clearInterval(timer);
+                tbodyDivScrollHeight = $($(".list-table")[1]).height() - $("#tbodyDiv").height();
+                timer = setInterval("autoScroll()", 100);
+
+                index_workCenterCode = index_workCenterCode + 1;
+                if (index_workCenterCode >= 3) {
+                    index_workCenterCode = 0;
+                }
+                
+            }
+            xhr.send(null);
+        }
+
+        /**
+         * 转化数量
+         */
+        function handlerQuantity(param) {
+            if (undefined === param || null === param || '' === param) {
+                return 0;
+            }
+            return Number(param).toFixed(0);
+        }
+
+        /**
+         * 初始化参数
+         */
+        function init() {
+            //初始化时间为当前日期
+            //var nowDateInfo = new Date().format("yyyy-MM-dd");
+            //var nowTimeInfo = new Date().format("hh:mm:ss");
+            //$("#nowDateInfo").find("font")[0].innerText = nowDateInfo;
+            //$("#nowTimeInfo").find("font")[0].innerText = nowTimeInfo;
+
+            //获取看板配置
+            getKanbanConfig();
+            //初始化生产部门列表
+            getDepartmentList();
+            //初始化工作中心列表
+            getWorkCenterList();
+        }
+
+        /**
+         * 添加cookie
+         */
+        function addCookie(name, value, expireMinutes) {
+            var cookieString = name + "=" + encodeURIComponent(value);
+            //判断是否设置过期时间
+            if (expireMinutes > 0) {
+                var date = new Date();
+                date.setTime(date.getTime() + expireMinutes * 60 * 1000);
+                cookieString = cookieString + "; expires=" + date.toGMTString();
+            }
+            document.cookie = cookieString;
+        }
+
+        /**
+         * 从cookie中取值
+         */
+        function getCookie(name) {
+            var strCookie = document.cookie;
+            var arrCookie = strCookie.split("; ");
+            for (var i = 0; i < arrCookie.length; i++) {
+                var arr = arrCookie[i].split("=");
+                if (arr[0] == name)return decodeURIComponent(arr[1]);
+            }
+            return "";
+        }
+
+        /**
+         * 获取URL参数值
+         */
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        }
+
+        /**
+         * 从URL上获取企业账套
+         */
+        function getSobByUrl() {
+            var sob = getQueryString("sob");
+            sob="001";
+            addCookie("gz_sob", sob);
+        }
+
+        /**
+         * 获取账套列表
+         */
+        function getSobList() {
+            var url = ctx + "/ledger/getLedgers.anon";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+            //xhr.setRequestHeader('x-request-datasource','001');
+            xhr.responseType='json';
+            xhr.onload  = function (e) {
+                //window.alert(xhr.responseText);
+                var json_data=JSON.parse(xhr.responseText);
+                //window.alert(getObjectClassName(data));
+                var data = json_data;
+                //window.alert(data);
+                $("#sob").find("option").remove();
+                for (var key in data) {
+                    $("#sob").append("<option value='" + key + "'>" + data[key] + "   (" + key + ")</option>");
+                }
+                //从cookie中取账套
+                var sob = getCookie("gz_sob");
+                $("#sob").val(sob);
+                $("#sob").find("option[value='" + sob + "']").attr("selected", true);
+                
+            }
+            xhr.send(null);
+        }
+
+        /**
+         * 改变企业账套
+         */
+        function changeSob() {
+            var sob = $("#sob").val();
+            window.location.href = ctx + "/kanban_gz.html?sob=" + sob;
+            addCookie("gz_sob", sob);
+        }
+
+        $(function () {
+            //初始化URL企业账套
+            getSobByUrl();
+
+            //初始化账套
+            getSobList();
+
+            var sob = "001";
+
+            if (undefined !== sob && '' !== sob && null !== sob) {
+
+                //初始化数据
+                init();
+
+                //刷新数据
+                refresh();
+            }
+
+        });
+
+    </script>
+</scripts>
+
+
+</body></html>
