@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/china.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/RealTimeProductionStatus.js"></script> 
+<script type="text/javascript" src="js/inventory.js"></script>
+<script type="text/javascript" src="js/ProductionPlan.js"></script> 
+<script type="text/javascript" src="js/shipment.js"></script>
+<script type="text/javascript" src="js/faultclassification.js"></script>
+<script type="text/javascript" src="js/sales_ranking.js"></script>
+<script type="text/javascript" src="js/Bubble.js"></script>
+<script type="text/javascript" src="js/guangxi.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .map{
+    width: 1240px;
+    height: 640px;
+  }
+
+/* 时间位置 */
+  #showTime{
+    position: absolute;
+    top: 0px;
+    right: 10px;
+  }
+
+  /* 标题样式动图 */
+  .sidebar{
+    width: 290px;
+    height: 290px;
+  }
+  #bottom-sidebar{
+    position: absolute;
+    right: 875px;
+    top: 0px;
+  }
+
+  
+</style>
+</head>
+<body>
+
+    <div class="sidebar" id="bottom-sidebar">
+        <img src="images\bottombar.gif" alt="">
+    </div>
+
+    <div class="head clearfix">
+        <h1 style="text-align: center;" >数广宝德大数据监控平台</h1>
+
+        <div class="time" id="showTime" >2021/6/12 17:00:12 </div>
+        <script>
+            var t = null;
+            t = setTimeout(time,1000);//開始运行
+            function time()
+            {
+               clearTimeout(t);//清除定时器
+                dt = new Date();
+                var y=dt.getFullYear();
+                var mt=dt.getMonth()+1;
+                var day=dt.getDate();
+                var h=dt.getHours();//获取时
+                var m=dt.getMinutes();//获取分
+                var s=dt.getSeconds();//获取秒
+                document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
+                t = setTimeout(time,1000); //设定定时器，循环运行     
+            } 
+        </script>
+    </div>
+
+    <div class="mainbox">
+        <ul class="clearfix nav1">
+            <li style="width: 22%">
+                
+                <!-- 质量日报 -->
+                <div class="box">
+                    <div class="tit">质量日报</div>
+                        <div class="boxnav" style="height: 200px;" id="dailyQR">
+                            <IFRAME NAME="daily_quality_report" width=100% height=100% frameborder="no" border="0" marginwidth=0 marginheight=0 SRC="质量日报.html" ></IFRAME>
+                        </div>
+                 </div>
+
+                 <!-- 故障分类 -->
+                 <div class="box">
+                    <div class="tit">异常分类</div>
+                    <div class="boxnav" style="height: 250px;">
+                        <div class="" style="height: 190px" id="show_fault">
+                        </div>
+                        <IFRAME NAME="fault_classification" width=100% height=100% frameborder="no" border="0" marginwidth=0 marginheight=0 SRC="故障分类.html" ></IFRAME>
+                    </div>
+                </div>
+            </li>
+
+            <li style="width: 56%">
+            
+            <!-- 地区销量排行 Regional sales ranking-->
+            <div class="box">
+                <div class="boxnav mapc" style="height: 550px; position: relative">
+                    <div class="mapnav"></div>
+                    <div class="mapnav2">
+                
+                        <div class="box">
+                            <div class="tit">地区销量排行</div>
+                            <div class="boxnav" style="height: 300px;" id="id_sales_ranking"></div>
+                    
+                        </div>
+                    </div>
+                    <div class="map" style="height: 550px;" id="guangxi-map"></div>
+                    
+                    <!-- <script>
+                    $(".mapbtn a").hover(function(){
+                        var ind=$(this).index()
+                        $(".mapnav ul").eq(ind).show().siblings().hide()
+                    })
+                    </scrip> -->
+                </div>
+            </div>
+            
+            </li>
+
+
+            <li style="width: 22%">
+            
+                <!-- 发货总量 -->
+                <div class="box">
+                    <div class="tit">发货总量</div>
+                    <div class="boxnav" id="total_shipment" style="height: 200px;"> </div>
+                </div>
+
+                <!-- 市场预测 -->
+                <div class="box">
+                    <div class="tit">市场预测</div>
+                    <div class="boxnav" style="height: 250px;">
+                        <div style="height: 200px; float: left; width: 40%; padding: 0 5px;">
+                            <div class="tit02 text-b">热门榜</div>
+                            <div class="huati">
+                                <ul>
+                                    <li>1.数据分析  <span class="text-s">↑2167</span></li>
+                                    <li>2.云存储     <span class="text-s">↑2167</span></li>
+                                    <li>3.视觉分析   <span class="text-d">↓2167</span></li>
+                                    <li>4.虚拟化   <span class="text-d">↓2167</span></li>
+                                    <li>5.云计算      <span class="text-d">↓2167</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                
+                        <div style="height: 200px; float: left; width: 60%">
+                            <div class="text-b tit02" style="text-align: center;">关键词 — 词云</div>
+                            
+                            <div class="tagcloud">
+                              <!-- bo大小 co颜色 -->
+                              <a class="b01 co01" href="#">大数据</a>
+                              <a class="b02 co02" href="#">云计算</a>
+                              <a class="b03 co05" href="#">人工智能</a>
+                              <a class="b04 co02" href="#">鲲鹏</a>
+                              <a class="b03 co05" href="#">国产化</a>
+                            </div>
+
+                            <script type="text/javascript">
+                                /*3D标签云*/
+                                tagcloud({
+                                    selector: ".tagcloud",  //元素选择器
+                                    fontsize: 6,       //基本字体大小, 单位px
+                                    radius: 40,         //滚动半径, 单位px 页面宽度和高度的五分之一
+                                    mspeed: "slow",   //滚动最大速度, 取值: slow, normal(默认), fast
+                                    ispeed: "slow",   //滚动初速度, 取值: slow, normal(默认), fast
+                                    direction: 0,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+                                    keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            
+            </li>
+        </ul>
+        
+        <div class="box" style="padding: 20px 0;">
+
+            <ul class="clearfix nav2 ">
+
+                <li style="width:25%">
+                    <div class="tit01">生产实时状况</div>
+                    <IFRAME NAME="real_time" allowtransparency="true" width=100% height=100% frameborder="no" border="0" marginwidth=0 marginheight=0 SRC="产线看板.html" ></IFRAME>
+                    <div class="" id="">
+                        <div style="float: left; width: 50%; height: 170px" id="fb01"></div>
+                        <div style="float: left; width: 50%; height: 170px"  id="fb02"></div>
+                    </div>
+                </li>
+
+                <li style="width:25%">
+                    <div class="tit01">生产计划</div>
+                    <div class="ftechart" id="production_plan"></div>
+                </li>
+
+                <li style="width:25%">
+
+                    <!-- 物料库存 -->
+                    <div class="tit01">物料库存</div>
+                        
+                    <div class="" id="">
+                        <div style="float: left; width: 50%; height: 200px" id="inv_pc"></div>
+                        <div style="float: left; width: 50%; height: 200px"  id="inv_server"></div>
+                    </div>
+            
+                </li>
+
+                <!-- 合作伙伴 -->
+                <li style="width:25%">
+                    <div class="tit01" >合作伙伴</div>
+                    <IFRAME NAME="cooperative_partner" allowtransparency="true" width=100% height=100% frameborder="no" border="0" marginwidth=0 marginheight=0 SRC="合作伙伴.html" ></IFRAME>
+                </li>
+        
+            </ul>
+        </div>
+        
+    <script>
+
+        // ******** real_time_productions ************
+
+        // ******** 异常分类 show_fault************ 
+        var fault_chart = echarts.init(document.getElementById('show_fault'));
+        var  fault_chart_ret = ShowFault();
+        fault_chart.setOption(fault_chart_ret);
+
+
+        // ******** 地区销量排行 show_fault************ 
+        var sales_ranking_chart = echarts.init(document.getElementById('id_sales_ranking'));
+        var  sales_ranking_ret = ShowSalesRanking();
+        sales_ranking_chart.setOption(sales_ranking_ret);
+
+
+        // ******** 发货总量 total_shipment************
+        var total_shipment_chart = echarts.init(document.getElementById('total_shipment'));
+        var  total_shipment_chart_ret = ShowTotalShipment();
+        total_shipment_chart.setOption(total_shipment_chart_ret);
+
+
+        // ******** 生产计划 Production plan echart4************
+        var production_plan_chart = echarts.init(document.getElementById('production_plan'));
+        var  r_p_p = showProductionPlan();
+        var index = 0; //播放所在下标
+        var mTime = setInterval(function() {
+                production_plan_chart.dispatchAction({
+                    type: 'showTip',
+                    seriesIndex: 0,
+                    dataIndex: index
+                });
+                index++;
+                if(index > 6) {
+                    index =	0;
+                }
+            }, 1000);
+
+        production_plan_chart.setOption(r_p_p);
+        
+
+        // ******** Inventory  库存、仓库************
+        var inventory_pc_chart = echarts.init(document.getElementById('inv_pc'));
+        var  r_ret = showInventoryStatus_PC();
+
+        inventory_pc_chart.setOption(r_ret);
+        
+
+        var inventory_server_chart = echarts.init(document.getElementById('inv_server'));
+        var rr_ret = showInventoryStatus_Server();
+
+        inventory_server_chart.setOption(rr_ret);
+
+
+        window.addEventListener("resize",function(){
+            fault_chart.resize();
+            inventory_pc_chart.resize();
+            total_shipment_chart.resize();
+            production_plan_chart.resize();
+            inventory_server_chart.resize();
+        });
+        
+    </script>
+
+</body>
+</html>
