@@ -9,7 +9,7 @@
         },
         
         legend: {
-            data: ['PC', '服务器'],
+            data: ['PC-KP', 'PR210K','PC-QS'],
             top:'2%',
             textStyle: {
                 color: "rgba(255,255,255,.5)",
@@ -81,7 +81,7 @@
 		}
 	}],
 	series:	[{
-		name: 'PC',
+		name: 'PC-KP',
 		type: 'bar',
 		data: [200,	300, 300, 900, 1500, 1200, 600],
 		barWidth:'20%',	//柱子宽度
@@ -94,7 +94,7 @@
 			}
 		}
 	}, {
-		name: '服务器',
+		name: 'PR210K',
 		type: 'bar',
 		data: [100,	400, 500, 1100,	1200, 900, 500],
 		barWidth:'20%',
@@ -102,6 +102,20 @@
 		itemStyle: {
 			normal:	{
 				color:'#62c98d',
+				opacity: 1,
+				barBorderRadius: 5,
+			}
+		}
+	},
+  {
+		name: 'PC-QS',
+		type: 'bar',
+		data: [100,	400, 500, 1100,	1200, 900, 500],
+		barWidth:'20%',
+	   // barGap: 1,
+		itemStyle: {
+			normal:	{
+				color:'#00FFFF',
 				opacity: 1,
 				barBorderRadius: 5,
 			}

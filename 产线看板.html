@@ -77,7 +77,7 @@
 
         .col .p2 p {
             color: white;
-            font-size: 5px;
+            font-size: 20px;
         }
 
         .panel {
@@ -109,7 +109,7 @@
         }
 
         table.list-table th {
-            font-size: 10px;
+            font-size: 20px;
             font-family: "Microsoft YaHei UI", "黑体";
             color: white;
             border: 1px white solid;
@@ -117,7 +117,7 @@
         }
 
         table.list-table td {
-            font-size: 10px;
+            font-size: 20px;
             border: 1px white solid;
             text-align: center;
         }
@@ -129,13 +129,13 @@
         .layui-select-title input {
             background-color: #000000;
             color: white;
-            font-size: 5px;
+            font-size: 10px;
         }
 
         .layui-unselect-title input {
             background-color: #000000;
             color: white;
-            font-size: 5px;
+            font-size: 10px;
         }
 
         .layui-form-select dl dd:hover {
@@ -204,25 +204,25 @@
     <div class="dz-row">
         <div class="layui-col-xs12">
             <div id="listDiv" class="" style="background-color: #033C76;height: 100%">
-                <div id="theadDiv" class="hide-scroll" style="overflow-y:scroll;background-color: #033C76">
+                <!--div id="theadDiv" class="hide-scroll" style="overflow-y:scroll;background-color: #033C76"-->
                     <table class="list-table" style="margin-bottom:0px;background-color: #033C76">
                         <colgroup>
-                            <col style="width: 10%;">
                             <col style="width: 14%;">
-                            <col style="width: 10%;">
-                            <col style="width: 10%;">
-                            <col style="width: 10%;">
-                            <col style="width: 10%;">
-                            <col style="width: 10%;">
-                            <col style="width: 13%;">
-                            <col style="width: 13%;">
+                            <col style="width: 16%;">
+                            <!--col style="width: 10%;"-->
+                            <!--col style="width: 10%;"-->
+                            <col style="width: 14%;">
+                            <col style="width: 14%;">
+                            <col style="width: 14%;">
+                            <col style="width: 14%;">
+                            <col style="width: 14%;">
                         </colgroup>
                         <thead>
                         <tr style="background-color: #033C76">
                             <th>工站</th>
                             <th>工站名称</th>
-                            <th>派工数</th>
-                            <th>派工时</th>
+                            <!--th>派工数</th-->
+                            <!--th>派工时</th-->
                             <th>完工数</th>
                             <th>合格数</th>
                             <th>不良数</th>
@@ -231,19 +231,17 @@
                         </tr>
                         </thead>
                     </table>
-                </div>
-                <!-- 滚动条 div id="tbodyDiv" class="hide-scroll" style="width: 100%; overflow-y: scroll; background-color: #033C76; height: 580px;"-->
+                <!--/div-->
+                <!--div id="tbodyDiv" class="hide-scroll" style="width: 100%; overflow-y: scroll; background-color: #033C76; height: 580px;"-->
                     <table class="list-table" id="data_table" style="background-color: #033C76">
                         <colgroup>
-                            <col style="width: 10%;">
                             <col style="width: 14%;">
-                            <col style="width: 10%;">
-                            <col style="width: 10%;">
-                            <col style="width: 10%;">
-                            <col style="width: 10%;">
-                            <col style="width: 10%;">
-                            <col style="width: 13%;">
-                            <col style="width: 13%;">
+                            <col style="width: 16%;">
+                            <col style="width: 14%;">
+                            <col style="width: 14%;">
+                            <col style="width: 14%;">
+                            <col style="width: 14%;">
+                            <col style="width: 14%;">
                         </colgroup>
                         <tbody>
                         <tr style="color:#FFFFFF"><td style="word-break:break-all;">SP103</td><td style="word-break:break-all;">除尘贴膜	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">ST104</td><td style="word-break:break-all;">后测</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP110</td><td style="word-break:break-all;">OEM包装	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA102</td><td style="word-break:break-all;">机箱加工	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SQ102</td><td style="word-break:break-all;">OQC功能检验	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP107</td><td style="word-break:break-all;">贴外箱标贴	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA105</td><td style="word-break:break-all;">接线理线、打胶	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA107</td><td style="word-break:break-all;">光驱安装</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP106</td><td style="word-break:break-all;">装箱封箱	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP105</td><td style="word-break:break-all;">套PE袋	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">ST103</td><td style="word-break:break-all;">老化测试	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA103</td><td style="word-break:break-all;">装主板、风扇	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA104</td><td style="word-break:break-all;">硬盘安装	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP101</td><td style="word-break:break-all;">配件包装	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP109</td><td style="word-break:break-all;">打包带	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SQ104</td><td style="word-break:break-all;">IPQC检验	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">HH01</td><td style="word-break:break-all;">维修工站</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP102</td><td style="word-break:break-all;">贴机器标贴	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">ST102</td><td style="word-break:break-all;">前测	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">18</td><td style="word-break:break-all;">18</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">50%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA101</td><td style="word-break:break-all;">电源、主板、硬盘、卡类加工	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">70</td><td style="word-break:break-all;">70</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">50%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP108</td><td style="word-break:break-all;">套外箱PE袋	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">ST101</td><td style="word-break:break-all;">安规测试	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">68</td><td style="word-break:break-all;">68</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">50%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SP104</td><td style="word-break:break-all;">出货拍照	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SQ101</td><td style="word-break:break-all;">QC内观检验	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">69</td><td style="word-break:break-all;">69</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">50%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SQ103</td><td style="word-break:break-all;">FQC检验	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA106</td><td style="word-break:break-all;">装电源、显卡	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">0%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr><tr style="color:#FFFFFF"><td style="word-break:break-all;">SA201</td><td style="word-break:break-all;">OEM组装	</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">0</td><td style="word-break:break-all;">70</td><td style="word-break:break-all;">70</td><td style="word-break:break-all;"><font color="red">0</font></td><td style="word-break:break-all;"><font color="red">50%</font></td><td style="word-break:break-all;"><font color="red">0%</font></td></tr></tbody>
@@ -394,7 +392,20 @@
 			xhr.send(null);
         }
 
-        var widthArray=["10","14","10","10","10","10","10","13","13"];
+/***
+                            <col style="width: 15%;">
+                            <col style="width: 19%;">
+                            <!--col style="width: 10%;"-->
+                            <!--col style="width: 10%;"-->
+                            <col style="width: 13%;">
+                            <col style="width: 13%;">
+                            <col style="width: 10%;">
+                            <col style="width: 11%;">
+                            <col style="width: 11%;">
+***/
+
+
+        var widthArray=["14","16","14","14","14","14","14"];
         /**
          *获取工序列表
          */
@@ -584,16 +595,21 @@
 
                     } else {
 
+                        if (data[i].workStationCode == "SA101")
+                        {
+                            data[i].workStationName = "主板加工";
+                        }
+
                         tbody.append("<tr style='color:#FFFFFF'>" +
                             "<td style='word-break:break-all;' "+ (widthArray[0]==0?"hidden":"") +">" + data[i].workStationCode + "</td>" +
                             "<td style='word-break:break-all;' "+ (widthArray[1]==0?"hidden":"") +">" + data[i].workStationName + "</td>" +
-                            "<td style='word-break:break-all;' "+ (widthArray[2]==0?"hidden":"") +">" + handlerQuantity(data[i].planQty) + "</td>" +
-                            "<td style='word-break:break-all;' "+ (widthArray[3]==0?"hidden":"") +">" + handlerQuantity(data[i].playHour) + "</td>" +
+                            //"<td style='word-break:break-all;' "+ (widthArray[2]==0?"hidden":"") +">" + handlerQuantity(data[i].planQty) + "</td>" +
+                            //"<td style='word-break:break-all;' "+ (widthArray[3]==0?"hidden":"") +">" + handlerQuantity(data[i].playHour) + "</td>" +
                             "<td style='word-break:break-all;' "+ (widthArray[4]==0?"hidden":"") +">" + handlerQuantity(data[i].completeQty) + "</td>" +
                             "<td style='word-break:break-all;' "+ (widthArray[5]==0?"hidden":"") +">" + handlerQuantity(data[i].qualifiedQty) + "</td>" +
-                            "<td style='word-break:break-all;' "+ (widthArray[6]==0?"hidden":"") +"><font color='red'>" + handlerQuantity(data[i].unQualifiedQty) + "</font></td>" +
-                            "<td style='word-break:break-all;' "+ (widthArray[7]==0?"hidden":"") +"><font color='red'>" + handlerQuantity(data[i].qualifiedRate) + "%</font></td>" +
-                            "<td style='word-break:break-all;' "+ (widthArray[8]==0?"hidden":"") +"><font color='red'>" + handlerQuantity(data[i].scheduleRate) + "%</font></td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[6]==0?"hidden":"") +"><font color='#00FF00'>" + handlerQuantity(data[i].unQualifiedQty) + "</font></td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[7]==0?"hidden":"") +"><font color='#00FF00'>" + handlerQuantity(data[i].qualifiedRate) + "%</font></td>" +
+                            "<td style='word-break:break-all;' "+ (widthArray[8]==0?"hidden":"") +"><font color='#00FF00'>" + handlerQuantity(data[i].scheduleRate) + "%</font></td>" +
                             "</tr>");
                     }
                 }

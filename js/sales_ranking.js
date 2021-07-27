@@ -2,7 +2,7 @@
 
     var option = {
         title: {
-            text: '销售量',
+            text: '出货量/台',
             textStyle:{
                 color: '#ffffff'
             }
@@ -58,7 +58,7 @@
     
         yAxis: {
             type: 'category',
-            data: ['河池','北海','玉林', '桂林', '防城港', '崇左',	'百色', '南宁'],
+            data: ['贵港','来宾','钦州','河池','北海','玉林', '桂林', '防城港', '崇左',	'百色', '南宁'],
             axisLine: {
                 show: true,
                 lineStyle: {
@@ -87,7 +87,7 @@
         series: [{
             name:   '2021年',
             type:   'bar',
-            data:   [90,88,182,	234, 290, 104, 134,	630],
+            data:   [77,68,56,90,88,182,234,290,104,134,	630],
             itemStyle:{
                 color: '#1E90FF'
             }
